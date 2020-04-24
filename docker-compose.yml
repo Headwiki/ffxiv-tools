@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    image: "postgres" # use latest official postgres version
+    env_file:
+      - db.env # configure postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data # persist data even if container shuts down
+    networks:
+      - backend
+  
+networks:
+  backend:
+
+volumes:
+  db-data:
