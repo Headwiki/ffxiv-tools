@@ -6,6 +6,7 @@ services:
       - db.env # configure postgres
     volumes:
       - db-data:/var/lib/postgresql/data # persist data even if container shuts down
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - backend
   
